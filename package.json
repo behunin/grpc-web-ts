@@ -1,0 +1,22 @@
+{
+  "name": "grpc-web-ts",
+  "version": "1.0.0",
+  "description": "Typescript library for gRPC",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behunin/grpc-web-ts.git"
+  },
+  "keywords": [
+    "grpc-web"
+  ],
+  "author": "Levi Behunin",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/behunin/grpc-web-ts/issues"
+  },
+  "homepage": "https://github.com/behunin/grpc-web-ts#readme"
+}
