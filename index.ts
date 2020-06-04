@@ -55,7 +55,8 @@ export abstract class Message {
         Object.getPrototypeOf(this),
         Object.getOwnPropertyDescriptors(this)
       )
-      arr.push(tmp.deserializeBinaryFromReader(reader))
+      tmp.deserializeBinaryFromReader(reader)
+      arr.push(tmp)
     }
   }
 }
