@@ -8,7 +8,7 @@ export abstract class Message {
   /**
    * Serializes the message to binary data (in protobuf wire format).
    */
-  serializeBinary(): number[] {
+  serializeBinary() {
     const writer = new BinaryWriter()
     this.serializeBinaryToWriter(writer)
     return writer.ResultBuffer
@@ -16,9 +16,9 @@ export abstract class Message {
   /**
    * Deserializes binary data (in protobuf wire format).
    */
-  deserializeBinary(bytes: Uint8Array): void {
+  deserializeBinary(bytes: Uint8Array) {
     const reader = new BinaryReader(bytes)
-    this.deserializeBinaryFromReader(reader)
+    return this.deserializeBinaryFromReader(reader)
   }
   /**
    * Serializes the given message to binary data (in protobuf wire
