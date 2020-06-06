@@ -29,34 +29,26 @@ export abstract class Message {
    * Deserializes binary data (in protobuf wire format) from the
    * given BinaryReader.
    */
-  abstract deserializeBinaryFromReader(reader: BinaryReader): void
+  abstract deserializeBinaryFromReader(reader: BinaryReader): this
   /**
    * Unary request.
    * Unary response.
    * Deserializes binary data from protobuf wire format.
    */
-  Unary(bytes: Uint8Array): void {
+  Unary(bytes: Uint8Array) {
     const reader = new BinaryReader(bytes)
     reader.Header()
-    this.deserializeBinaryFromReader(reader)
+    return this.deserializeBinaryFromReader(reader)
   }
   /**
    * Unary request.
    * Streaming response.
    * Deserializes binary data from protobuf wire format.
    */
-  Stream(bytes: Uint8Array, arr: this[]) {
+  static Stream(bytes: Uint8Array, msg: any, arr: Array<Message>) {
     const reader = new BinaryReader(bytes)
     while (reader.Header()) {
-      // TODO: I would like to do a reset on the object,
-      // either delete all the properties,
-      // or set all properties to undefined.
-      const tmp = Object.create(
-        Object.getPrototypeOf(this),
-        Object.getOwnPropertyDescriptors(this)
-      )
-      tmp.deserializeBinaryFromReader(reader)
-      arr.push(tmp)
+      arr.push(new msg().deserializeBinaryFromReader(reader))
     }
   }
 }
