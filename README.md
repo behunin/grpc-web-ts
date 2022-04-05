@@ -1,6 +1,8 @@
 # grpc-web-ts
 Typescript library for gRPC
 
-This library is auto imported by the generated typescript files.
+This library is auto imported by the [generated typescript files](https://github.com/behunin/protobuf-ts/tree/master).
 
-import { BinaryReader, BinaryWriter, Message } from 'grpc-web-ts';
+
+
+``import { BinaryReader, BinaryWriter, Message } from 'grpc-web-ts';``
